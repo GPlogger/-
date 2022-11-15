@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   display: flex; // flex는 방향지정 필요
   flex-direction: row; // row : 가로   컬럼 : 세로
   width: 100%;
-  height: 77px;
+  height: 80px;
   background-color: grey;
   justify-content: center;
 `;

@@ -23,7 +23,7 @@ function KakaoMapContainer() {
           width: "100%",
         }}
       >
-        <div id="map" style={{ width: "1500px", height: "852px" }}></div>
+        <div id="map" style={{ width: "1307px", height: "852px" }}></div>
       </div>
     </Wrapper>
   );
