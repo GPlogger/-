@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import PlaceSelector from "./PlaceSelector.jsx";
 import PlaceTable from "./PlaceTable.jsx";
-// import dummy from "\public\dummy\place_list.json"
+// import dummy from "\public\dummy\place_list"
 
 function LeftSideBar() {
 

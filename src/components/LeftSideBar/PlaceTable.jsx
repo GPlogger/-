@@ -54,7 +54,7 @@ function PlaceTable(props) {
             <h5>{props.tag}</h5>
             <h5>{props.tag}</h5>
           <PlaceButtons>
-            <IoInformationSharp />
+            <a href="https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500349" target={"_blank"}><IoInformationSharp /></a>
             <IoAddOutline />
           </PlaceButtons>
           </PlaceInfo>
