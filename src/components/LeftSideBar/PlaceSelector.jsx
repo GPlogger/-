@@ -15,12 +15,12 @@ const Wrapper = styled.div`
 function PlaceSelector() {
   return (
     <Wrapper>
-        <img src="assets/img/PlaceSelect/All.png" alt="전체"></img>
-        <img src="assets/img/PlaceSelect/All.png" alt="관광지"></img>
-        <img src="assets/img/PlaceSelect/All.png" alt="숙소"></img>
-        <img src="assets/img/PlaceSelect/All.png" alt="식당"></img>
-        <img src="assets/img/PlaceSelect/All.png" alt="쇼핑"></img>
-        <img src="assets/img/PlaceSelect/All.png" alt="기타"></img>
+        <img src="assets/img/PlaceSelect/All.png" alt="전체" style={{height: "51px"}}></img>
+        <img src="assets/img/PlaceSelect/All.png" alt="관광지"style={{height: "51px"}}></img>
+        <img src="assets/img/PlaceSelect/All.png" alt="숙소"style={{height: "51px"}}></img>
+        <img src="assets/img/PlaceSelect/All.png" alt="식당"style={{height: "51px"}}></img>
+        <img src="assets/img/PlaceSelect/All.png" alt="쇼핑"style={{height: "51px"}}></img>
+        <img src="assets/img/PlaceSelect/All.png" alt="기타"style={{height: "51px"}}></img>
     </Wrapper>
   );
 }
