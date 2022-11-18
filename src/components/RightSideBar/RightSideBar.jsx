@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import ScaduleTable from "./ScaduleTable";
 
 const Wrapper = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ const Profile = styled.img`
 function RightSideBar() {
   return (
     <Wrapper>
-      <p>오른쪽 사이드 바</p>
+      <ScaduleTable></ScaduleTable>
     </Wrapper>
   );
 }

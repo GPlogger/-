@@ -1,6 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
+import { useRecoilState } from "recoil";
+import { positionState, levelState } from "../recoil/MapStates";
+
+import panTo from "../KakaoMap/KakaoMapContainer";
+let position = [0, 0];
+let level = 3;
 
 const Wrapper = styled.div`
   display: flex;
@@ -31,6 +37,7 @@ const PlaceInfo = styled.div`
   width: 165px;
   justify-content: space-between;
   background-color: #f8dada;
+  cursor: pointer;
 `;
 
 const PlaceButtons = styled.div`
@@ -39,26 +46,37 @@ const PlaceButtons = styled.div`
   text-align: right;
 
   background-color: #eeebce;
+`;
 
-`
-//"assets/img/TD/948.png"
-//"성산일출봉"
-//"#태그태그 #태그태그"
 function PlaceTable(props) {
+  // const 함수이름 = () => {
+  //  지금 과정이  여기서 부모한테 보내기 -> 부모에서 지도로 값 보내주기 -> 지도에서 값 사용하기
+  // };
+  const [positionG, setPositionG] = useRecoilState(positionState);
+  const [levelG, setLevelG] = useRecoilState(levelState);
+
+  const setMap = () => {
+    setPositionG(props.position);
+    setLevelG(props.level);
+    console.log(positionG);
+    console.log(levelG);
+  };
+
   return (
     <Wrapper>
-        <PlaceList>
-          <PlaceImg src={props.img} alt={props.name} />
-          <PlaceInfo>
-            <h4>{props.name}</h4>
-            <h5>{props.tag}</h5>
-            <h5>{props.tag}</h5>
+      <PlaceList>
+        <PlaceImg src={props.img} alt={props.name} />
+        <PlaceInfo onClick={setMap}>
+          <h4>{props.name}</h4>
+          <h5>{props.tag}</h5>
           <PlaceButtons>
-            <a href="https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500349" target={"_blank"}><IoInformationSharp /></a>
+            <a href={props.link} target={"_blank"}>
+              <IoInformationSharp />
+            </a>
             <IoAddOutline />
           </PlaceButtons>
-          </PlaceInfo>
-        </PlaceList>
+        </PlaceInfo>
+      </PlaceList>
     </Wrapper>
   );
 }

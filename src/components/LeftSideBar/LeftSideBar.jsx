@@ -1,29 +1,27 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import styled from "styled-components";
+
+import placelist from "../../placelist.json";
 
 import PlaceSelector from "./PlaceSelector.jsx";
 import PlaceTable from "./PlaceTable.jsx";
-// import dummy from "\public\dummy\place_list"
 
 function LeftSideBar() {
-
-
   return (
     <Wrapper>
       <PlaceSelector />
       <Wrapper2>
-      <PlaceTable img="assets/img/TD/948.png" name="성산일출봉" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트1" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트2" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트3" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트3" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트3" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트3" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트3" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트3" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트3" tag="#태그태그 #태그태그"/>
-      <PlaceTable img="assets/img/TD/948.png" name="테스트3" tag="#태그태그 #태그태그"/>
-
+        {placelist.placelist.map((item) => (
+          <PlaceTable
+            key={item.id}
+            name={item.title}
+            img={item.thumbnail}
+            tag={item.tag}
+            link={item.link}
+            position={item.position}
+            level={item.level}
+          />
+        ))}
       </Wrapper2>
     </Wrapper>
   );
@@ -41,8 +39,8 @@ const Wrapper = styled.div`
 `;
 
 const Wrapper2 = styled.div`
-  display:flex;
+  display: flex;
   flex-direction: column;
   overflow: scroll;
   height: 785px;
-`
+`;
