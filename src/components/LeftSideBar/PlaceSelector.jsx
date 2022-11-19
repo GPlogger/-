@@ -21,10 +21,14 @@ const Image = styled.img`
 `;
 
 const LastImage = styled.img`
-  padding: 8px;
+  padding: 15px;
   width: calc(100%);
   /* width: calc(100%/6); */
-  :hover {border:rgb(42,134,129) 2px solid;}
+  :hover {
+    border:rgb(42,134,129) 2px solid;
+    transform: scale(0.9);   /* 이미지 확대 */
+    transition: transform 2s;  /* 시간 설정 */
+  }
 `;
 const ImageBox = styled.div`
   width: calc(100%/6);

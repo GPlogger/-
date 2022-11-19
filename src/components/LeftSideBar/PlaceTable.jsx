@@ -23,7 +23,12 @@ const PlaceList = styled.div`
   width: 275px;
   background-color: white;
   align-content: center;
-  box-shadow: 0 17px 20px -18px #a3a3a3;    
+  box-shadow: 0 17px 20px -18px #a3a3a3; 
+  cursor: pointer;
+  /* :hover {border:rgb(42,134,129) 2px solid;
+    transform: scale(1);
+  } */
+
 `;
 
 const PlaceImg = styled.img`

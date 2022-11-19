@@ -4,12 +4,14 @@ import { Scrollbar } from "smooth-scrollbar/scrollbar";
 
 import placelist from "../../placelist.json";
 
+import PlaceSearchBox from "./PlaceSearchBox";
 import PlaceSelector from "./PlaceSelector.jsx";
 import PlaceTable from "./PlaceTable.jsx";
 
 function LeftSideBar() {
   return (
     <Wrapper>
+      <PlaceSearchBox />
       <PlaceSelector />
       <Wrapper2>
         {placelist.placelist.map((item) => (
