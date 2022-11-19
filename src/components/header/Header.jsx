@@ -7,8 +7,9 @@ const Wrapper = styled.div`
   flex-direction: row; // row : 가로   컬럼 : 세로
   width: 100%;
   height: 80px;
-  background-color: grey;
+  background-color: #ffffff;
   justify-content: center;
+  border-bottom: 1px solid rgb(241,241,241);
 `;
 
 const Logo = styled.img`

@@ -21,8 +21,9 @@ const PlaceList = styled.div`
   flex-direction: row;
   height: 96px;
   width: 275px;
-  background-color: #e8f0ee;
+  background-color: white;
   align-content: center;
+  box-shadow: 0 17px 20px -18px #a3a3a3;    
 `;
 
 const PlaceImg = styled.img`
@@ -37,7 +38,7 @@ const PlaceInfo = styled.div`
   margin: 7px;
   width: 165px;
   justify-content: space-between;
-  background-color: #f8dada;
+  background-color: white;
   cursor: pointer;
 `;
 
@@ -46,7 +47,7 @@ const PlaceButtons = styled.div`
   height: 20%;
   text-align: right;
 
-  background-color: #eeebce;
+  background-color: white;
 `;
 
 function PlaceTable(props) {
