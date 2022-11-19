@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { positionState, levelState } from "../recoil/MapStates";
@@ -12,15 +13,15 @@ function KakaoMapContainer() {
 
   const [map, setMap] = useState(null);
 
-  useEffect(() => {
-    const container = document.getElementById("map");
-    const options = {
-      center: new kakao.maps.LatLng(33.37055326804881, 126.53223166774146),
-      level: levelG,
-    };
-    const map = new kakao.maps.Map(container, options);
-    setMap(map);
-  }, []);
+  // useEffect(() => {
+  //   const container = document.getElementById("map");
+  //   const options = {
+  //     center: new kakao.maps.LatLng(33.37055326804881, 126.53223166774146),
+  //     level: levelG,
+  //   };
+  //   const map = new kakao.maps.Map(container, options);
+  //   setMap(map);
+  // }, []);
 
   function panTo() {
     // 이동할 위도 경도 위치를 생성합니다
@@ -30,16 +31,18 @@ function KakaoMapContainer() {
     // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
     map.panTo(moveLatLon);
   }
-
+  
   return (
     <Wrapper>
-      <div
-        style={{
-          width: "100%",
-        }}
+      <Map
+        center={{ lat: 33.37055326804881, lng: 126.53223166774146 }}
+        style={{ width: "1307px", height: "852px" }}
+        level = {9}
       >
-        <div id="map" style={{ width: "1307px", height: "852px" }}></div>
-      </div>
+        <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
+          <div style={{ color: "#000" }}>Hello World!</div>
+        </MapMarker>
+      </Map>
     </Wrapper>
   );
 }

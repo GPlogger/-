@@ -12,14 +12,14 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 80px;
+  height: 60px;
   margin: 10px;
 `;
 
 function Header() {
   return (
     <Wrapper>
-      <Logo src="assets/img/logo3.png" alt="logo" />
+      <Logo src="assets/img/logo1.png" alt="여행도 제주껏" />
     </Wrapper>
   );
 }

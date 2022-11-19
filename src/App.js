@@ -22,10 +22,6 @@ const Main = styled.div`
 
 function App() {
   // Global Data
-  const [position, setposition] = useState([0, 0]);
-  const [level, setlevel] = useState(3);
-
-  const toggleSetting = () => {};
 
   return (
     <Wrapper>
