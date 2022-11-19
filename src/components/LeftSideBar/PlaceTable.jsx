@@ -26,6 +26,7 @@ const PlaceList = styled.div`
 `;
 
 const PlaceImg = styled.img`
+margin: 3px;
   width: 90px;
   height: 90px;
 `;

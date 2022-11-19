@@ -36,11 +36,14 @@ function KakaoMapContainer() {
     <Wrapper>
       <Map
         center={{ lat: 33.37055326804881, lng: 126.53223166774146 }}
-        style={{ width: "1307px", height: "852px" }}
+        style={{ width: "1307px", height: "857px" }}
+        // style={{ width: "1307px", height: "852px" }} //기존(노트북 해상도로 바꿈)
         level = {9}
       >
+
+
         <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
-          <div style={{ color: "#000" }}>Hello World!</div>
+          <div style={{ color: "#000" }}>월정리해변</div>
         </MapMarker>
       </Map>
     </Wrapper>

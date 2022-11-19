@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100vw; // 전체 가로비율
   height: 100vh; // 전체 세로비율
+  overflow: hidden;
 `;
 
 const Main = styled.div`
