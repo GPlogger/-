@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { useRecoilValue } from "recoil";
 import { positionState, levelState } from "../recoil/MapStates";
 
-const { kakao } = window;
 
 function KakaoMapContainer() {
   // recoil 전역변수 사용
@@ -22,23 +21,36 @@ function KakaoMapContainer() {
   //   const map = new kakao.maps.Map(container, options);
   //   setMap(map);
   // }, []);
+  const [state, setState] = useState({
+    // 지도의 초기 위치
+        center:{ lat: 33.37055326804881, lng: 126.53223166774146 },
+        // 지도 위치 변경 시 panto를 이용할지
+        isPanto: true,
+  })
 
-  function panTo() {
-    // 이동할 위도 경도 위치를 생성합니다
-    var moveLatLon = new kakao.maps.LatLng(positionG[0], positionG[1]);
 
-    // 지도 중심을 부드럽게 이동시킵니다
-    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
-    map.panTo(moveLatLon);
-  }
   
   return (
     <Wrapper>
+      <button onClick={() => 
+      setState({
+        center: {lat: 33.45058, lng: 126.574942},
+        isPanto: true,
+      })}>이동테스트1
+      </button>
+      <button onClick={() => 
+      setState({
+        center: {lat: 33.37055326804881, lng: 126.53223166774146},
+        isPanto: true,
+      })}>이동테스트2
+      </button>
       <Map
-        center={{ lat: 33.37055326804881, lng: 126.53223166774146 }}
-        style={{ width: "1307px", height: "857px" }}
-        // style={{ width: "1307px", height: "852px" }} //기존(노트북 해상도로 바꿈)
-        level = {9}
+        center={state.center}
+        isPanto={state.isPanto}
+        style={{ width: "1307px", height: "810px" }}
+        // style={{ width: "1307px", height: "852px" }} //컴퓨터
+        // style={{ width: "1307px", height: "857px" }} //노트북
+        level = {6}
       >
 
 
@@ -46,6 +58,7 @@ function KakaoMapContainer() {
           <div style={{ color: "#000" }}>월정리해변</div>
         </MapMarker>
       </Map>
+
     </Wrapper>
   );
 }
