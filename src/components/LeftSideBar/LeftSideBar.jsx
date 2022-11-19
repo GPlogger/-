@@ -11,8 +11,8 @@ import PlaceTable from "./PlaceTable.jsx";
 function LeftSideBar() {
   return (
     <Wrapper>
-      <PlaceSearchBox />
       <PlaceSelector />
+      <PlaceSearchBox />
       <Wrapper2>
         {placelist.placelist.map((item) => (
           <PlaceTable
