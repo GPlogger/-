@@ -13,3 +13,8 @@ body{
   font-family: "Jejudoldam";
   src: url("./fonts/Jejudoldam.ttf");
 }
+
+@font-face {
+  font-family: "Nanum";
+  src: url("./fonts/NanumSquareNeo-aLt.ttf");
+}

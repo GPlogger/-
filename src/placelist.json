@@ -8,7 +8,7 @@
       "link": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500349",
       "time": "120",
       "Select": "관광지",
-      "position":[33.458056, 126.9425],    
+      "position":{"lat": 33.458056, "lng":126.9425},    
       "level":4
     },
     {
@@ -19,7 +19,7 @@
       "link": "https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000500685",
       "time": "240",
       "Select": "관광지",
-      "position":[33.3616666, 126.5291666],
+      "position":{"lat":33.3616666, "lng":126.5291666},
       "level":4
     },
     {

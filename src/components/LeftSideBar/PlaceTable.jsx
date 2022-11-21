@@ -2,11 +2,64 @@ import React from "react";
 import styled from "styled-components";
 import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
-import { positionState, levelState } from "../recoil/MapStates";
+import { positionState, levelState, mapState } from "../recoil/MapStates";
 
 import panTo from "../KakaoMap/KakaoMapContainer";
 let position = [0, 0];
 let level = 3;
+
+
+
+function PlaceTable(props) {
+
+
+  const [positionG, setPositionG] = useRecoilState(positionState);
+  const [levelG, setLevelG] = useRecoilState(levelState);
+
+  // const [mapState, setMapState] = useRecoilState(mapState);
+  
+  const [state, setState] = useRecoilState(mapState);
+
+
+  const setMap = () => {
+    setPositionG(props.position);
+    setLevelG(props.level);
+    console.log(positionG);
+    console.log(levelG);
+    console.log(positionG.lat);
+    setState({
+      center: props.position,
+      isPanto: true,
+      position: props.position,
+    })
+    // setMapState({
+    //   center: props.position,
+    //   isPanto: true,
+    //   position: props.position,
+    // })
+
+  };
+
+  return (
+    <Wrapper>
+      <PlaceList>
+        <PlaceImg src={props.img} alt={props.name} />
+        <PlaceInfo onClick={setMap}>
+          <h4>{props.name}</h4>
+          <h5>{props.tag}</h5>
+          <PlaceButtons>
+            <a href={props.link} target={"_blank"}>
+              <IoInformationSharp />
+            </a>
+            <IoAddOutline />
+          </PlaceButtons>
+        </PlaceInfo>
+      </PlaceList>
+    </Wrapper>
+  );
+}
+
+export default PlaceTable;
 
 const Wrapper = styled.div`
   display: flex;
@@ -54,39 +107,3 @@ const PlaceButtons = styled.div`
 
   background-color: white;
 `;
-
-function PlaceTable(props) {
-  // const 함수이름 = () => {
-  //  지금 과정이  여기서 부모한테 보내기 -> 부모에서 지도로 값 보내주기 -> 지도에서 값 사용하기
-  // };
-  const [positionG, setPositionG] = useRecoilState(positionState);
-  const [levelG, setLevelG] = useRecoilState(levelState);
-
-  const setMap = () => {
-    setPositionG(props.position);
-    setLevelG(props.level);
-    console.log(positionG);
-    console.log(levelG);
-    console.log(positionG.lat);
-  };
-
-  return (
-    <Wrapper>
-      <PlaceList>
-        <PlaceImg src={props.img} alt={props.name} />
-        <PlaceInfo onClick={setMap}>
-          <h4>{props.name}</h4>
-          <h5>{props.tag}</h5>
-          <PlaceButtons>
-            <a href={props.link} target={"_blank"}>
-              <IoInformationSharp />
-            </a>
-            <IoAddOutline />
-          </PlaceButtons>
-        </PlaceInfo>
-      </PlaceList>
-    </Wrapper>
-  );
-}
-
-export default PlaceTable;

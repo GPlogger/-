@@ -5,12 +5,15 @@ import ScaduleBox from "./ScaduleBox";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: skyblue;
+  background-color: #dee7eb;
   height: 852px;
 
 `;
 
 function ScaduleTable() {
+
+
+  
   return (
     <Wrapper>
         <ScaduleBox></ScaduleBox>

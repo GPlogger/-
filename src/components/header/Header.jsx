@@ -7,16 +7,13 @@ const Wrapper = styled.div`
   flex-direction: row; // row : 가로   컬럼 : 세로
   width: 100%;
   height: 80px;
-  background-color: rgb(200, 209, 206 );
+  background-color: rgb(194,202,143 );
   justify-content: center;
   border-bottom: 1px solid rgb(241,241,241);
-  font-family: "Jejudoldam";
+  font-family: "Nanum";
   font-size: 25px;
-  padding: 13px;
+  padding: 17px;
 `;
-const Text = styled.h2`
-  
-`
 
 const Logo = styled.img`
   height: 60px;

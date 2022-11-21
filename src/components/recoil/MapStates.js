@@ -10,6 +10,21 @@ import { atom, useRecoilState } from "recoil";
 //   default: 126.53223166774146,
 // })
 
+export const mapState = atom({
+  key: "mapState",
+  default: {
+    center: {
+      lat: 33.37055326804881,
+      lng: 126.53223166774146
+    },
+    position: {
+      lat: 33.37055326804881,
+      lng: 126.53223166774146
+    },
+    isPanto: true,
+  }
+});
+
 
 // 중심 좌표
 export const centerState = atom({
@@ -19,6 +34,7 @@ export const centerState = atom({
     lng: 126.53223166774146
   },
 });
+
 
 // 마커 좌표
 export const positionState = atom({
