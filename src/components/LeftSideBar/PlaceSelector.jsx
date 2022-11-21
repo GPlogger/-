@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 6%;
-  background-color: rgb(226,238,238);
+  background-color: rgb(177,193,187);
   /* border-right: 1px solid #e0e0e0; */
 `;
 
@@ -17,7 +17,7 @@ const Image = styled.img`
   width: calc(100%);
   /* width: calc(100%/6); */
   &::after{width: 10px; height: 10px; background-color: red;}
-  :hover {border:rgb(42,134,129) 2px solid;}
+  /* :hover {border:rgb(42,134,129) 2px solid;} */
 `;
 
 const LastImage = styled.img`
@@ -25,7 +25,6 @@ const LastImage = styled.img`
   width: calc(100%);
   /* width: calc(100%/6); */
   :hover {
-    border:rgb(42,134,129) 2px solid;
     transform: scale(0.9);   /* 이미지 확대 */
     transition: transform 2s;  /* 시간 설정 */
   }
@@ -33,6 +32,9 @@ const LastImage = styled.img`
 const ImageBox = styled.div`
   width: calc(100%/6);
   cursor: pointer;
+  :hover {
+    border:rgb(42,134,129) 2px solid;
+  }
   
 `
 

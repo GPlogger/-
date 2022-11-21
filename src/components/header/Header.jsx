@@ -7,10 +7,16 @@ const Wrapper = styled.div`
   flex-direction: row; // row : 가로   컬럼 : 세로
   width: 100%;
   height: 80px;
-  background-color: #ffffff;
+  background-color: rgb(200, 209, 206 );
   justify-content: center;
   border-bottom: 1px solid rgb(241,241,241);
+  font-family: "Jejudoldam";
+  font-size: 25px;
+  padding: 13px;
 `;
+const Text = styled.h2`
+  
+`
 
 const Logo = styled.img`
   height: 60px;
@@ -20,7 +26,8 @@ const Logo = styled.img`
 function Header() {
   return (
     <Wrapper>
-      <Logo src="assets/img/logo1.png" alt="여행도 제주껏" />
+      <h2>여행도 제주껏</h2>
+      {/* <Logo src="assets/img/logo1.png" alt="여행도 제주껏" /> */}
     </Wrapper>
   );
 }

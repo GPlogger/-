@@ -8,3 +8,8 @@ body{
   font-family:
    'nanumsquare';
 }
+
+@font-face {
+  font-family: "Jejudoldam";
+  src: url("./fonts/Jejudoldam.ttf");
+}

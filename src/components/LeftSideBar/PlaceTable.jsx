@@ -67,6 +67,7 @@ function PlaceTable(props) {
     setLevelG(props.level);
     console.log(positionG);
     console.log(levelG);
+    console.log(positionG.lat);
   };
 
   return (

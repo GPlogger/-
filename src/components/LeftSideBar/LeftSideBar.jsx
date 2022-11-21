@@ -12,7 +12,7 @@ function LeftSideBar() {
   return (
     <Wrapper>
       <PlaceSelector />
-      <PlaceSearchBox />
+      {/* <PlaceSearchBox /> */}
       <Wrapper2>
         {placelist.placelist.map((item) => (
           <PlaceTable
