@@ -30,7 +30,7 @@ function KakaoMapContainer() {
   // const [position, setPosition] = useState();
 
   return (
-    <Wrapper>
+    <Wrapper>   
       <Map
         center={state.center}
         isPanto={state.isPanto}

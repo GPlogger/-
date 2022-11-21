@@ -25,7 +25,7 @@ const LastImage = styled.img`
   width: calc(100%);
   /* width: calc(100%/6); */
   :hover {
-    transform: scale(0.9);   /* 이미지 확대 */
+    transform: scale(0.8);   /* 이미지 확대 */
     transition: transform 2s;  /* 시간 설정 */
   }
 `;

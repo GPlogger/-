@@ -4,22 +4,13 @@ import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
 import { positionState, levelState, mapState } from "../recoil/MapStates";
 
-import panTo from "../KakaoMap/KakaoMapContainer";
-let position = [0, 0];
-let level = 3;
-
-
-
 function PlaceTable(props) {
-
-
   const [positionG, setPositionG] = useRecoilState(positionState);
   const [levelG, setLevelG] = useRecoilState(levelState);
 
   // const [mapState, setMapState] = useRecoilState(mapState);
-  
-  const [state, setState] = useRecoilState(mapState);
 
+  const [state, setState] = useRecoilState(mapState);
 
   const setMap = () => {
     setPositionG(props.position);
@@ -31,13 +22,12 @@ function PlaceTable(props) {
       center: props.position,
       isPanto: true,
       position: props.position,
-    })
+    });
     // setMapState({
     //   center: props.position,
     //   isPanto: true,
     //   position: props.position,
     // })
-
   };
 
   return (
@@ -75,17 +65,27 @@ const PlaceList = styled.div`
   height: 96px;
   width: 275px;
   background-color: white;
-  align-content: center;
-  box-shadow: 0 17px 20px -18px #a3a3a3; 
+  /* align-content: center; */
+  align-items: center;    // 
+  justify-content: center;
+  box-shadow: 0 17px 20px -18px #a3a3a3;
   cursor: pointer;
-  /* :hover {border:rgb(42,134,129) 2px solid;
-    transform: scale(1);
-  } */
-
+  :hover {
+    border: rgb(42, 134, 129) 2px solid;
+    /* transform: scale(1); */
+  }
 `;
 
+// const PlaceImg = styled.img`
+//   margin: 3px;
+//   width: 90px;
+//   height: 90px;
+// `;
+
 const PlaceImg = styled.img`
-margin: 3px;
+  align-items: center;
+  justify-content : center;
+  /* margin: 3px; */
   width: 90px;
   height: 90px;
 `;
