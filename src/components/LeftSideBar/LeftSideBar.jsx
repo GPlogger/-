@@ -1,7 +1,9 @@
 import { React, useState, useEffect } from "react";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import placeList from "../../placelist.json";
+import { FilterList } from "../recoil/Search";
 
 import PlaceSearchBox from "./PlaceSearchBox";
 import PlaceSelector from "./PlaceSelector.jsx";
@@ -9,13 +11,14 @@ import PlaceTable from "./PlaceTable.jsx";
 
 function LeftSideBar() {
 
+  const [filterList, setFilterList] = useRecoilState(FilterList);
 
   return (
     <Wrapper>
       <PlaceSearchBox />
       <PlaceSelector />
       <Wrapper2>
-        {placeList.placelist.map((item) => (
+        {filterList.map((item) => (
           <PlaceTable
             key={item.id}
             name={item.title}

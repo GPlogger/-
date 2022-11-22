@@ -1,27 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { useRecoilState } from "recoil";
-import { SearchKeyword } from "../recoil/SearchKeyword";
-
+import { FilterList } from "../recoil/Search";
+import placeList from "../../placelist.json";
+import { RoadviewInfoWindow } from "react-kakao-maps-sdk";
 
 function PlaceSearchBox() {
+  const [filterList, setfilterList] = useRecoilState(FilterList);
+  const [keyword, setKeyword] = useState("");
 
-  const [keyword, setKeyword] = useRecoilState(SearchKeyword);
+  const _setFilterList = () => {
+    setfilterList(
+      keyword !== ""
+        ? placeList.placelist.filter((item) => item.title.includes(keyword))
+        : placeList.placelist
+    );
+  };
 
-  const search = () => {
-    const searchKeyword = document.querySelector('#keyword').value;
-    setKeyword(searchKeyword);
-};
-
+  // 엔터 눌렀을 때
+  const onEnterPress = (e) => {
+    if (e.key === "Enter") {
+      console.log("엔터");
+      _setFilterList();
+    }
+  };
 
   return (
     <Wrapper>
       <SearchBox>
-      <InputBox placeholder="여행지 입력" id="keyword"></InputBox>
-      <SearchBox onClick={search}>
-        <AiOutlineSearch />
-        </SearchBox>
+        <InputBox
+          type="text"
+          value={keyword}
+          placeholder="검색어 입력"
+          onChange={(e) => {
+            setKeyword(e.target.value);
+          }}
+          onKeyDown={onEnterPress}
+        />
+        <SearchButton onClick={_setFilterList}>
+          <AiOutlineSearch />
+        </SearchButton>
       </SearchBox>
     </Wrapper>
   );
@@ -40,30 +59,31 @@ const Wrapper = styled.div`
 `;
 
 const SearchBox = styled.div`
-  display:flex;
+  display: flex;
   border: 1px solid rgb(89, 126, 85);
-  width:100%;
-  height : 100%;
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-`
+`;
 
 const InputBox = styled.input`
-  display:flex;
+  display: flex;
   font-size: 16px;
   height: 100%;
   padding: 10px;
   outline: none;
   float: left;
-`
+`;
 
 const SearchButton = styled.button`
-  display:flex;
- border: 0px;  
- height: 100px; 
- background-color: #1b5ac2;
- outline: none;
- float: right;
- color: #ffffff;
-`
+  display: flex;
+  border: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #1b5ac2;
+  outline: none;
+  float: right;
+  color: #ffffff;
+`;
