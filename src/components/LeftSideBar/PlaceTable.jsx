@@ -15,9 +15,7 @@ function PlaceTable(props) {
   const setMap = () => {
     setPositionG(props.position);
     setLevelG(props.level);
-    console.log(positionG);
-    console.log(levelG);
-    console.log(positionG.lat);
+
     setState({
       center: props.position,
       isPanto: true,

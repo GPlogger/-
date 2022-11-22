@@ -1,22 +1,52 @@
 import React from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
+import { useRecoilState } from "recoil";
+import { SearchKeyword } from "../recoil/SearchKeyword";
+
+
+function PlaceSearchBox() {
+
+  const [keyword, setKeyword] = useRecoilState(SearchKeyword);
+
+  const search = () => {
+    const searchKeyword = document.querySelector('#keyword').value;
+    setKeyword(searchKeyword);
+};
+
+
+  return (
+    <Wrapper>
+      <SearchBox>
+      <InputBox placeholder="여행지 입력" id="keyword"></InputBox>
+      <SearchBox onClick={search}>
+        <AiOutlineSearch />
+        </SearchBox>
+      </SearchBox>
+    </Wrapper>
+  );
+}
+
+export default PlaceSearchBox;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 6%;
   width: 100%;
-  background-color: #a3a3a3;
+  background-color: white;
   padding: 10px;
+  align-items: center;
 `;
 
 const SearchBox = styled.div`
   display:flex;
-  border: 1px solid #1b5ac2;
+  border: 1px solid rgb(89, 126, 85);
   width:100%;
-  height : 90%;
+  height : 100%;
   justify-content: center;
+  align-items: center;
+  cursor: pointer;
 `
 
 const InputBox = styled.input`
@@ -37,15 +67,3 @@ const SearchButton = styled.button`
  float: right;
  color: #ffffff;
 `
-function PlaceSearchBox() {
-  return (
-    <Wrapper>
-      <SearchBox>
-      <InputBox placeholder="검색어 입력"></InputBox>
-      <SearchBox><AiOutlineSearch /></SearchBox>
-      </SearchBox>
-    </Wrapper>
-  );
-}
-
-export default PlaceSearchBox;

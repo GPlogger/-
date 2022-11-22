@@ -5,7 +5,7 @@ import ScaduleBox from "./ScaduleBox";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: #dee7eb;
+  background-color: white;
   height: 852px;
 
 `;

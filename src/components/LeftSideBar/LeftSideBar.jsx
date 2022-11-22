@@ -1,20 +1,21 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
-import { Scrollbar } from "smooth-scrollbar/scrollbar";
 
-import placelist from "../../placelist.json";
+import placeList from "../../placelist.json";
 
 import PlaceSearchBox from "./PlaceSearchBox";
 import PlaceSelector from "./PlaceSelector.jsx";
 import PlaceTable from "./PlaceTable.jsx";
 
 function LeftSideBar() {
+
+
   return (
     <Wrapper>
+      <PlaceSearchBox />
       <PlaceSelector />
-      {/* <PlaceSearchBox /> */}
       <Wrapper2>
-        {placelist.placelist.map((item) => (
+        {placeList.placelist.map((item) => (
           <PlaceTable
             key={item.id}
             name={item.title}
