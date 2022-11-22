@@ -39,7 +39,7 @@ function PlaceSearchBox() {
           onKeyDown={onEnterPress}
         />
         <SearchButton onClick={_setFilterList}>
-          <AiOutlineSearch />
+          <AiOutlineSearch style={{ color: "black" }} />
         </SearchButton>
       </SearchBox>
     </Wrapper>
@@ -51,7 +51,7 @@ export default PlaceSearchBox;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  height: 6%;
+  height: 55px;
   width: 100%;
   background-color: white;
   padding: 10px;
@@ -60,7 +60,8 @@ const Wrapper = styled.div`
 
 const SearchBox = styled.div`
   display: flex;
-  border: 1px solid rgb(89, 126, 85);
+  border: 1px solid rgb(148, 185, 143);
+  border-radius: 8px;
   width: 100%;
   height: 100%;
   justify-content: center;
@@ -75,6 +76,9 @@ const InputBox = styled.input`
   padding: 10px;
   outline: none;
   float: left;
+  border: none;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 `;
 
 const SearchButton = styled.button`
@@ -82,7 +86,11 @@ const SearchButton = styled.button`
   border: 0px;
   width: 100%;
   height: 100%;
-  background-color: #1b5ac2;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(237, 237, 229);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   outline: none;
   float: right;
   color: #ffffff;

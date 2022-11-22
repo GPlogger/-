@@ -6,13 +6,15 @@
 
 body{
   font-family:
-   'nanumsquare';
+   'Nanum';
+   box-sizing: border-box;
 }
 
 @font-face {
   font-family: "Jejudoldam";
   src: url("./fonts/Jejudoldam.ttf");
 }
+  
 
 @font-face {
   font-family: "Nanum";

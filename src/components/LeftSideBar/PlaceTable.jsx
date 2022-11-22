@@ -48,6 +48,13 @@ function PlaceTable(props) {
 }
 
 export default PlaceTable;
+const Title = styled.h4`
+  
+`
+const Subtitle = styled.h5`
+  
+`
+
 
 const Wrapper = styled.div`
   display: flex;
@@ -64,9 +71,10 @@ const PlaceList = styled.div`
   width: 275px;
   background-color: white;
   /* align-content: center; */
-  align-items: center;    // 
+  align-items: center; //
   justify-content: center;
-  box-shadow: 0 17px 20px -18px #a3a3a3;
+  box-shadow: 5px 15px 5px -10px #e4e4e4;
+  border-radius: 7px;
   cursor: pointer;
   :hover {
     border: rgb(42, 134, 129) 2px solid;
@@ -82,10 +90,12 @@ const PlaceList = styled.div`
 
 const PlaceImg = styled.img`
   align-items: center;
-  justify-content : center;
+  justify-content: center;
   /* margin: 3px; */
   width: 90px;
   height: 90px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
 `;
 
 const PlaceInfo = styled.div`
