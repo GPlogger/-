@@ -5,15 +5,11 @@ import ScaduleTable from "./ScaduleTable";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #e0e0e0;
   align-content: center;
   width: 16%;
-  background-color: greenyellow;
+  height: 100%;
+  background-color: rgb(247, 247, 247);
 `;
-
-const Profile = styled.img`
-    
-`
 
 function RightSideBar() {
   return (

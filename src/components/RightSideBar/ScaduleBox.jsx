@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import MoveButtonBox from "./MoveButtonBox";
+import ScaduleInfo from "./ScaduleInfo";
 
 const Wrapper = styled.div`
     display: flex;
-    flex-direction: column;
-    height: 100px;
+    flex-direction: row;
+    height: 9%;
     margin: 9px 12px 0px;
     background-color: grey;
 `;
@@ -14,6 +15,7 @@ function ScaduleBox () {
     return (
         <Wrapper>
             <MoveButtonBox></MoveButtonBox>
+            <ScaduleInfo/>
         </Wrapper>
     );
 }
