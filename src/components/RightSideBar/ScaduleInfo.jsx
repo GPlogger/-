@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import PlaceTime from "./PlaceTime";
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 90%;
   height: 100%;
-  background-color: goldenrod;
+  background-color: #8196b4;
 `;
 
 const Title = styled.div`
@@ -21,7 +22,7 @@ function ScaduleInfo() {
     <Wrapper>
         <Title>여행지 제목</Title>
         <div>
-        <Time>여행지 시간</Time>
+        <PlaceTime></PlaceTime>
         </div>
     </Wrapper>
   );

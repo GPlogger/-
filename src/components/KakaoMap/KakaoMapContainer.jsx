@@ -14,7 +14,8 @@ function KakaoMapContainer() {
       <Map
         center={state.center}     // 중심좌표
         isPanto={state.isPanto}
-        style={{ width: "1307px", height: "863px" }}  // 지도크기
+        style={{ width: "100%", height: "100%" }}  // 지도크기
+        // style={{ width: "1307px", height: "863px" }}  // 지도크기
         level={9}   // 확대레벨
       >
         <MapMarker position={state.position}>

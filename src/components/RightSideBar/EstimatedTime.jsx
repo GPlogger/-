@@ -24,9 +24,9 @@ const DotLine = styled.div`
     display: flex;
     flex-direction: column;
     height: 30px;
-    border-style: dotted;
-    border-width: thick;
-    border-right: 2px;
+    width: 34px;
+    border: none;
+    border-right: 4px dotted black;    
 `
 
 const TimeBox = styled.div`

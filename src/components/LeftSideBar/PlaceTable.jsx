@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
 import { positionState, levelState, mapState } from "../recoil/MapStates";
+import { ScaduleState, TestState } from "../recoil/Scadulestate";
 
 function PlaceTable(props) {
   const [state, setState] = useRecoilState(mapState);
-
+  const [scadule, setScadule] = useRecoilState(ScaduleState);
+  const [test, setTest] = useRecoilState(TestState);
   const setMap = () => {
-
-
     setState({
       center: props.position,
       isPanto: true,
@@ -18,6 +18,19 @@ function PlaceTable(props) {
     });
   };
 
+  const setScaduleBar = () => {
+    let count = scadule;
+    // console.log(state.total);
+    console.log(typeof(scadule.total));
+    setScadule({
+        title: count.title,
+        time: count.time,
+        total: count.total + 1,
+    })
+    console.log(scadule.total);
+    // setTest(prev => prev+1)
+    // console.log(test);
+  };
   return (
     <Wrapper>
       <PlaceList>
@@ -29,7 +42,7 @@ function PlaceTable(props) {
             <a href={props.link} target={"_blank"}>
               <IoInformationSharp />
             </a>
-            <IoAddOutline />
+            <IoAddOutline onClick={setScaduleBar}/>
           </PlaceButtons>
         </PlaceInfo>
       </PlaceList>

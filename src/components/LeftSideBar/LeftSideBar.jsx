@@ -40,7 +40,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   background-color: rgb(247, 247, 247);
   align-content: center;
-  width: 16%;
+  width: 300px;
+  /* width: 16%; */
   height: 100%;
 `;
 
@@ -49,7 +50,7 @@ const Wrapper2 = styled.div`
   flex-direction: column;
   overflow: scroll;
   overflow-x: hidden;
-  height: 747px;
+  height: 100%;
   ::-webkit-scrollbar {
     width: 8px;
   }
