@@ -14,6 +14,7 @@ function PlaceTable(props) {
       center: props.position,
       isPanto: true,
       position: props.position,
+      name: props.name,
     });
   };
 
@@ -22,8 +23,8 @@ function PlaceTable(props) {
       <PlaceList>
         <PlaceImg src={props.img} alt={props.name} />
         <PlaceInfo onClick={setMap}>
-          <h4>{props.name}</h4>
-          <h5>{props.tag}</h5>
+          <Title>{props.name}</Title>
+          <Subtitle>{props.tag}</Subtitle>
           <PlaceButtons>
             <a href={props.link} target={"_blank"}>
               <IoInformationSharp />
@@ -38,10 +39,10 @@ function PlaceTable(props) {
 
 export default PlaceTable;
 const Title = styled.h4`
-  
+  padding-bottom: 5px;
 `
 const Subtitle = styled.h5`
-  
+  padding-bottom: 3px;
 `
 
 

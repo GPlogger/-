@@ -19,7 +19,7 @@ function KakaoMapContainer() {
       >
         <MapMarker position={state.position}>
 
-        <div style={{ padding: "5px", color: '#000'}}>야호 <br /></div>
+        <div style={{ width:"148px", padding: "5px", color: '#000', textAlign: "center"}}>{state.name} <br /></div>
         </MapMarker>
         
         {/* {state.position && <MapMarker position={state.position} />} */}
@@ -35,4 +35,5 @@ const Wrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+  font-family: "GmarketSans"
 `;
