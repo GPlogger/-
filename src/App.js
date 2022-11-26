@@ -29,9 +29,9 @@ function App() {
       <Header />
       <Main>
         <LeftSideBar />
-        <div id="middle-Side">
+        <KakaoMap>
           <KakaoMapContainer />
-        </div>
+        </KakaoMap>
         <RightSideBar />
       </Main>
     </Wrapper>
@@ -39,3 +39,8 @@ function App() {
 }
 
 export default App;
+
+const KakaoMap = styled.div`
+  width: 68%;
+  height: 40%;
+`

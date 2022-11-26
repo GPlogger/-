@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   background-color: rgb(255, 250, 240);
   justify-content: center;
   align-items: center;
-  font-family: "Jejudoldam";
+  font-family: "Jejuhanla";
   font-size: 24px;
   /* padding: 17px; */
   color: #252525;

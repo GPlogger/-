@@ -51,7 +51,7 @@ export default PlaceSearchBox;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  height: 55px;
+  height: 6.4%;
   width: 100%;
   background-color: white;
   padding: 10px;

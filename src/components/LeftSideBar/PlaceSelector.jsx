@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   flex-direction: column; */
   display: flex;
   flex-direction: row;
-  height: 50px;
+  height: 5.8%;
   background-color: rgb(177, 193, 187);
   /* border-right: 1px solid #e0e0e0; */
 `;

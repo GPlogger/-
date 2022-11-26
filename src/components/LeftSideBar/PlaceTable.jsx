@@ -5,27 +5,16 @@ import { useRecoilState } from "recoil";
 import { positionState, levelState, mapState } from "../recoil/MapStates";
 
 function PlaceTable(props) {
-  const [positionG, setPositionG] = useRecoilState(positionState);
-  const [levelG, setLevelG] = useRecoilState(levelState);
-
-  // const [mapState, setMapState] = useRecoilState(mapState);
-
   const [state, setState] = useRecoilState(mapState);
 
   const setMap = () => {
-    setPositionG(props.position);
-    setLevelG(props.level);
+
 
     setState({
       center: props.position,
       isPanto: true,
       position: props.position,
     });
-    // setMapState({
-    //   center: props.position,
-    //   isPanto: true,
-    //   position: props.position,
-    // })
   };
 
   return (
@@ -59,7 +48,7 @@ const Subtitle = styled.h5`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 110px;
+  height: 87.8%;
   /* padding: 10px; */
   margin: 9px 9px 0px;
 `;
