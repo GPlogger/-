@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useRecoilState } from "recoil";
+import { useRecoilState, waitForNone } from "recoil";
 import { FilterList } from "../recoil/Search";
 import placeList from "../../placelist.json";
-import { RoadviewInfoWindow } from "react-kakao-maps-sdk";
 
 function PlaceSearchBox() {
   const [filterList, setfilterList] = useRecoilState(FilterList);
@@ -12,12 +11,15 @@ function PlaceSearchBox() {
 
   const _setFilterList = () => {
     setfilterList(
-      keyword !== ""
-        ? placeList.placelist.filter((item) => item.title.includes(keyword))
-        : placeList.placelist
+      keyword == " " || keyword == "  " || keyword == "   " ? placeList.placelist :
+      (keyword !== ""
+      ? filterList.filter((item) => item.title.includes(keyword))
+      : placeList.placelist)
+
     );
   };
 
+  
   // 엔터 눌렀을 때
   const onEnterPress = (e) => {
     if (e.key === "Enter") {

@@ -2,31 +2,36 @@ import React from "react";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
 import { FilterList } from "../recoil/Search";
+import placeList from "../../placelist.json";
+
 
 function PlaceSelector() {
   const [filterList, setFilterList] = useRecoilState(FilterList);
   const setFilterAll = () => {
-  
+    setFilterList(placeList.placelist);
   }
 
   const setFilterDestination = () => {
-
+    setFilterList(placeList.placelist.filter((item) => item.Select.includes("관광지")));
   }
 
   const setFilterAmenity = () => {
+    setFilterList(placeList.placelist.filter((item) => item.Select.includes("숙소")));
 
   }
 
   const setFilterRestaurant = () => {
+    setFilterList(placeList.placelist.filter((item) => item.Select.includes("식당")));
 
   }
 
   const setFilterShop = () => {
+    setFilterList(placeList.placelist.filter((item) => item.Select.includes("쇼핑")));
 
   }
 
   const setFilterEtc = () => {
-
+    setFilterList(placeList.placelist.filter((item) => item.Select.includes("기타")));
   }
   return (
     <Wrapper>
