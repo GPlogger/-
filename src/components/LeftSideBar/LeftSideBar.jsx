@@ -26,6 +26,7 @@ function LeftSideBar() {
             link={item.link}
             position={item.position}
             level={item.level}
+            time={item.time}
           />
         ))}
       </Wrapper2>

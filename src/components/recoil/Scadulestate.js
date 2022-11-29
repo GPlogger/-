@@ -4,7 +4,7 @@ export const ScaduleState = atom({
     key: "ScaduleState",
     default: {
         title: "",
-        time: 125,
+        time: 0,
         total: 0,
     },
 });
@@ -15,7 +15,7 @@ export const TotalTimeState = atom({
 })
 
 
-export const TestState = atom({
-    key: "Test",
+export const TotalCountState = atom({
+    key: "TotalCountState",
     default: 0,
 })

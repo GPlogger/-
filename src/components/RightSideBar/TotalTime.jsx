@@ -1,16 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 import { RecoilValue, useRecoilValue } from "recoil";
-import { ScaduleState, TestState } from "../recoil/Scadulestate";
+import { ScaduleState, TotalCountState, TotalTimeState } from "../recoil/Scadulestate";
 import RightSideBar from "./RightSideBar";
 
 
 
 function TotalTime(props) {
   const schedule = useRecoilValue(ScaduleState);
-  const test = useRecoilValue(TestState);
+  const totalTime = useRecoilValue(TotalTimeState);
+  const totalCount = useRecoilValue(TotalCountState);
+
   let hour = Math.floor(schedule.time / 60);
-  let minute = schedule.time % 60;
+  let minute = Number(schedule.time) % 60;
 
   return (
     <Wrapper>

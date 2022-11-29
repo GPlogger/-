@@ -3,12 +3,11 @@ import styled from "styled-components";
 import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
 import { positionState, levelState, mapState } from "../recoil/MapStates";
-import { ScaduleState, TestState } from "../recoil/Scadulestate";
+import { ScaduleState,  } from "../recoil/Scadulestate";
 
 function PlaceTable(props) {
   const [state, setState] = useRecoilState(mapState);
   const [scadule, setScadule] = useRecoilState(ScaduleState);
-  const [test, setTest] = useRecoilState(TestState);
   const setMap = () => {
     setState({
       center: props.position,
@@ -18,16 +17,17 @@ function PlaceTable(props) {
     });
   };
 
+
   const setScaduleBar = () => {
     let count = scadule;
-    // console.log(state.total);
-    console.log(typeof(scadule.total));
     setScadule({
         title: count.title,
-        time: count.time,
-        total: count.total + 1,
+        time: count.time + props.time,       // 전체 시간 증가
+        total: count.total + 1,     // 전체 장소 증가
     })
-    console.log(scadule.total);
+    console.log(props.time);
+    // setTotalCount(prev => prev+1);
+    // setTotalTime(time + props.time);
     // setTest(prev => prev+1)
     // console.log(test);
   };
