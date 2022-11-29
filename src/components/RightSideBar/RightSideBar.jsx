@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import ScaduleTable from "./ScaduleTable";
+import ScheduleTable from "./ScheduleTable";
 import TotalTime from "./TotalTime";
 
 const Wrapper = styled.div`
@@ -16,7 +16,7 @@ function RightSideBar() {
   return (
     <Wrapper>
       <TotalTime/>
-      <ScaduleTable></ScaduleTable>
+      <ScheduleTable></ScheduleTable>
     </Wrapper>
   );
 }

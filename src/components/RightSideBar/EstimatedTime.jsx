@@ -13,7 +13,7 @@ function EstimatedTime() {
   return (
     <Wrapper>
         <DotLine></DotLine>
-        <TimeBox>애</TimeBox>
+        <TimeBox>OO 시간</TimeBox>
     </Wrapper>
   );
 }
@@ -30,5 +30,10 @@ const DotLine = styled.div`
 `
 
 const TimeBox = styled.div`
-    
+    display: flex;
+    background-color: red;
+    height: 20px;
+    margin: 4px;
+    align-items: center;
+    justify-content: center;
 `

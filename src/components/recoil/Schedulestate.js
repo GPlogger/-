@@ -1,7 +1,7 @@
 import { atom } from "recoil";
 
-export const ScaduleState = atom({
-    key: "ScaduleState",
+export const ScheduleState = atom({
+    key: "ScheduleState",
     default: {
         title: "",
         time: 0,

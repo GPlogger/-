@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import EstimatedTime from "./EstimatedTime";
-import ScaduleBox from "./ScaduleBox";
+import ScheduleBox from "./ScheduleBox";
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,16 +12,16 @@ const Wrapper = styled.div`
 
 `;
 
-function ScaduleTable() {
+function ScheduleTable() {
 
 
   
   return (
     <Wrapper>
-        <ScaduleBox></ScaduleBox>
+        <ScheduleBox></ScheduleBox>
         <EstimatedTime></EstimatedTime>
     </Wrapper>
   );
 }
 
-export default ScaduleTable;
+export default ScheduleTable;

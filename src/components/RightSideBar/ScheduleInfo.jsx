@@ -17,7 +17,7 @@ const Title = styled.div`
 const Time = styled.div`
     display: flex;
 `
-function ScaduleInfo() {
+function ScheduleInfo() {
   return (
     <Wrapper>
         <Title>여행지 제목</Title>
@@ -28,4 +28,4 @@ function ScaduleInfo() {
   );
 }
 
-export default ScaduleInfo;
+export default ScheduleInfo;

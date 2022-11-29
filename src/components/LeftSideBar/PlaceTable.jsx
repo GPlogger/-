@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
 import { positionState, levelState, mapState } from "../recoil/MapStates";
-import { ScaduleState,  } from "../recoil/Scadulestate";
+import { ScheduleState,  } from "../recoil/Schedulestate";
 
 function PlaceTable(props) {
   const [state, setState] = useRecoilState(mapState);
-  const [scadule, setScadule] = useRecoilState(ScaduleState);
+  const [schedule, setSchedule] = useRecoilState(ScheduleState);
   const setMap = () => {
     setState({
       center: props.position,
@@ -18,9 +18,9 @@ function PlaceTable(props) {
   };
 
 
-  const setScaduleBar = () => {
-    let count = scadule;
-    setScadule({
+  const setScheduleBar = () => {
+    let count = schedule;
+    setSchedule({
         title: count.title,
         time: count.time + props.time,       // 전체 시간 증가
         total: count.total + 1,     // 전체 장소 증가
@@ -42,7 +42,7 @@ function PlaceTable(props) {
             <a href={props.link} target={"_blank"}>
               <IoInformationSharp />
             </a>
-            <IoAddOutline onClick={setScaduleBar}/>
+            <IoAddOutline onClick={setScheduleBar}/>
           </PlaceButtons>
         </PlaceInfo>
       </PlaceList>

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import MoveButtonBox from "./MoveButtonBox";
-import ScaduleInfo from "./ScaduleInfo";
+import ScheduleInfo from "./ScheduleInfo";
 
 const Wrapper = styled.div`
     display: flex;
@@ -13,12 +13,12 @@ const Wrapper = styled.div`
     background-color: grey;
 `;
 
-function ScaduleBox () {
+function ScheduleBox () {
     return (
         <Wrapper>
             <MoveButtonBox></MoveButtonBox>
-            <ScaduleInfo/>
+            <ScheduleInfo/>
         </Wrapper>
     );
 }
-export default ScaduleBox;
+export default ScheduleBox;

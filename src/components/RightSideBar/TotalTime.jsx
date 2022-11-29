@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { RecoilValue, useRecoilValue } from "recoil";
-import { ScaduleState, TotalCountState, TotalTimeState } from "../recoil/Scadulestate";
+import { ScheduleState, TotalCountState, TotalTimeState } from "../recoil/Schedulestate";
 import RightSideBar from "./RightSideBar";
 
 
 
 function TotalTime(props) {
-  const schedule = useRecoilValue(ScaduleState);
+  const schedule = useRecoilValue(ScheduleState);
   const totalTime = useRecoilValue(TotalTimeState);
   const totalCount = useRecoilValue(TotalCountState);
 
