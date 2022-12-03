@@ -20,6 +20,7 @@ function LeftSideBar() {
         {filterList.map((item) => (
           <PlaceTable
             key={item.id}
+            id={item.id}
             name={item.title}
             img={item.thumbnail}
             tag={item.tag}

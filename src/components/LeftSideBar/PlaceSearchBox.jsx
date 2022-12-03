@@ -9,6 +9,9 @@ function PlaceSearchBox() {
   const [filterList, setfilterList] = useRecoilState(FilterList);
   const [keyword, setKeyword] = useState("");
 
+  // const searchSpace = () => {
+    // alert("검색어가 공백입니다.");
+  // }
   const _setFilterList = () => {
     setfilterList(
       keyword == " " || keyword == "  " || keyword == "   " ? placeList.placelist :
@@ -53,7 +56,8 @@ export default PlaceSearchBox;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  height: 6.4%;
+  /* height: 6.4%; */
+  height: 50px;
   width: 100%;
   background-color: white;
   padding: 10px;

@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
 import { positionState, levelState, mapState } from "../recoil/MapStates";
-import { ScheduleState,  } from "../recoil/Schedulestate";
+import { ScheduleListState, ScheduleState } from "../recoil/Schedulestate";
 
 function PlaceTable(props) {
   const [state, setState] = useRecoilState(mapState);
   const [schedule, setSchedule] = useRecoilState(ScheduleState);
+  const [scheduleList, setScheduleList] = useRecoilState(ScheduleListState);
   const setMap = () => {
     setState({
       center: props.position,
@@ -17,20 +18,36 @@ function PlaceTable(props) {
     });
   };
 
-
   const setScheduleBar = () => {
-    let count = schedule;
+    // 스케줄 총 시간 변경
+    // let count = schedule;
+    // setSchedule({
+    //     time: count.time + props.time,       // 전체 시간 증가
+    //     total: count.total + 1,     // 전체 장소 증가
+    // })
+
+    // let idx = 0;
+    // let obj = {title:"여행지", time:50, moveTime:0};
+    // let list = scheduleList;
+    // list = scheduleList[scheduleList.length] = obj;
+    // setScheduleList(list);
+    // 스케줄 테이블의 시간 변경
     setSchedule({
-        title: count.title,
-        time: count.time + props.time,       // 전체 시간 증가
-        total: count.total + 1,     // 전체 장소 증가
-    })
-    console.log(props.time);
-    // setTotalCount(prev => prev+1);
-    // setTotalTime(time + props.time);
-    // setTest(prev => prev+1)
-    // console.log(test);
+      time: schedule.time + props.time,
+      total: schedule.total + 1,
+    });
+    setScheduleList(
+      scheduleList.concat({
+        id: props.id,
+        title: props.name,
+        time: props.time,
+        moveTime: 0,
+      })
+    );
+    console.log(schedule);
+    console.log(scheduleList);
   };
+
   return (
     <Wrapper>
       <PlaceList>
@@ -42,7 +59,7 @@ function PlaceTable(props) {
             <a href={props.link} target={"_blank"}>
               <IoInformationSharp />
             </a>
-            <IoAddOutline onClick={setScheduleBar}/>
+            <IoAddOutline onClick={setScheduleBar} />
           </PlaceButtons>
         </PlaceInfo>
       </PlaceList>
@@ -53,16 +70,15 @@ function PlaceTable(props) {
 export default PlaceTable;
 const Title = styled.h4`
   padding-bottom: 5px;
-`
+`;
 const Subtitle = styled.h5`
   padding-bottom: 3px;
-`
-
+`;
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 87.8%;
+  /* height: 87.8%; */
   /* padding: 10px; */
   margin: 9px 9px 0px;
 `;

@@ -13,7 +13,7 @@ function EstimatedTime() {
   return (
     <Wrapper>
         <DotLine></DotLine>
-        <TimeBox>OO 시간</TimeBox>
+        <TimeBox placeholder="TIME"/>
     </Wrapper>
   );
 }
@@ -26,14 +26,17 @@ const DotLine = styled.div`
     height: 30px;
     width: 34px;
     border: none;
-    border-right: 4px dotted black;    
+    border-right: 4px dotted black;
+    border-color: grey;    
 `
 
-const TimeBox = styled.div`
+const TimeBox = styled.input`
     display: flex;
-    background-color: red;
-    height: 20px;
-    margin: 4px;
+    background-color: white;
+    height: 30px;
+    margin: 0% 3%;
+    width: 50px;
+    text-align: center;
     align-items: center;
     justify-content: center;
 `

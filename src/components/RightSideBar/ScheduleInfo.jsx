@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 90%;
-  height: 100%;
+  height: 70px;
   background-color: #8196b4;
 `;
 
@@ -17,12 +17,12 @@ const Title = styled.div`
 const Time = styled.div`
     display: flex;
 `
-function ScheduleInfo() {
+function ScheduleInfo(props) {
   return (
     <Wrapper>
-        <Title>여행지 제목</Title>
+        <Title>{props.title}</Title>
         <div>
-        <PlaceTime></PlaceTime>
+        <PlaceTime time={props.time}/>
         </div>
     </Wrapper>
   );
