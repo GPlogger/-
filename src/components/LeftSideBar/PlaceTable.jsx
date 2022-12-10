@@ -2,13 +2,38 @@ import React from "react";
 import styled from "styled-components";
 import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
-import { positionState, levelState, mapState } from "../recoil/MapStates";
+import { positionState, levelState, mapState, placePositionState, isScheduleState, distancesState, pathState } from "../recoil/MapStates";
 import { ScheduleListState, ScheduleState } from "../recoil/Schedulestate";
 
 function PlaceTable(props) {
+  // 지도 마커 변경
   const [state, setState] = useRecoilState(mapState);
+  // 전체 스케줄 시간과 장소 변경
   const [schedule, setSchedule] = useRecoilState(ScheduleState);
+  // 스케줄리스트의 배열 추가
   const [scheduleList, setScheduleList] = useRecoilState(ScheduleListState);
+  // 스케줄 추가 시 맵 선을 긋기 위한 좌표 추가
+  const [placePostion, setPlacePostion] = useRecoilState(placePositionState);
+  // 스케줄이 2개 이상일 시 경로 표시 컨트롤을 위한 boolean
+  const [isSchedule, setIsSchedule] = useRecoilState(isScheduleState);
+  // 지도에 표시할 거리
+  const [distances, setDistance] = useRecoilState(distancesState);
+  // 지도에 표시할 선의 경로
+  const [paths, setPaths] = useRecoilState(pathState);
+
+
+
+/** 첫 장소의 좌표와 다음 좌표의 거리를 반환*/
+  function getDistanceBetweenPlaces(lat1, lng1, lat2, lng2) {
+    let theta = lng1 - lng2;
+    let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+        Math.sin(lat1 * (Math.PI/180)) * Math.sin(lat2 * (Math.PI/180)) + 
+        Math.cos(lat1 * (Math.PI/180)) * Math.cos(lat2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
+    );
+    return Math.round(distance * 1609.344, 2);
+  };
+
+
   const setMap = () => {
     setState({
       center: props.position,
@@ -19,33 +44,57 @@ function PlaceTable(props) {
   };
 
   const setScheduleBar = () => {
-    // 스케줄 총 시간 변경
-    // let count = schedule;
-    // setSchedule({
-    //     time: count.time + props.time,       // 전체 시간 증가
-    //     total: count.total + 1,     // 전체 장소 증가
-    // })
-
-    // let idx = 0;
-    // let obj = {title:"여행지", time:50, moveTime:0};
-    // let list = scheduleList;
-    // list = scheduleList[scheduleList.length] = obj;
-    // setScheduleList(list);
-    // 스케줄 테이블의 시간 변경
     setSchedule({
       time: schedule.time + props.time,
       total: schedule.total + 1,
     });
+
     setScheduleList(
       scheduleList.concat({
         id: props.id,
         title: props.name,
         time: props.time,
-        moveTime: 0,
+        moveTime: 0, // 이동 시간
       })
     );
-    console.log(schedule);
-    console.log(scheduleList);
+
+    // 지도 선 긋기 위한 전역변수 세팅
+
+    setPaths((prev) => [
+      ...prev,
+      {
+        lat: props.position.lat,
+        lng: props.position.lng,
+      },
+    ]);
+
+
+
+    // if(scheduleList.length > 1){  // 추가된 스케줄이 2개 이상이면
+    setIsSchedule(true);
+    //  Distance = 첫번째 장소의 lat, lng , 두번째 장소의 lat, lng
+
+    // console.log(distance);
+    // } else {
+    //   setIsSchedule(false)
+    // }
+
+    setPlacePostion({
+      // 선 긋기에 표시할 포지션,
+      lat: props.position.lat,
+      lng: props.position.lng,
+    });
+
+    console.log(distances);
+
+    console.log(distances.slice(1, distances.length));
+    let dis = getDistanceBetweenPlaces(
+      placePostion.lat,
+      placePostion.lng,
+      props.position.lat,
+      props.position.lng
+    );
+    setDistance((prev) => [...prev, dis]);
   };
 
   return (

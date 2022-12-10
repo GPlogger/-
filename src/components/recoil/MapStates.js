@@ -17,11 +17,33 @@ export const mapState = atom({
   }
 });
 
-export const lineState = atom({
-  key: "lineState",
-  default: [[
-    { lat: 33.452344169439975, lng: 126.56878163224233 },
-    { lat: 33.452739313807456, lng: 126.5709308145358 },
-    { lat: 33.37055326804881, lng: 126.53223166774146 },
-  ]],
+
+
+// 경로 배정이 0인지 표시
+export const isScheduleState = atom({
+  key: "isScheduleState",
+  default: false,
+})
+
+// 추가한 위치의 좌표, 일정 추가 시 그 장소의 좌표값 path에 추가
+export const placePositionState = atom({
+  key: "placePositionState",
+  default: ({
+    lat: 0,
+    lng: 0,
+  })
+})
+
+// 지도에 그어질 선 좌표들 지정
+export const pathState = atom({
+  key: "pathState",
+  default: ([]),
+});
+
+// 선의 거리정보 표시할 커스텀 오버레이
+export const distancesState = atom({
+  key: "distanceState",
+  default: ([
+    
+  ]),
 });

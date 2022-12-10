@@ -40,4 +40,5 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-family: "GmarketSans";
+  /* box-shadow: 0px -5px 18px -3px #999; */
 `;
