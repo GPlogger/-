@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   /* height: 1000px;/ */
   height: 120px;
   width: 100%;
-
 `;
 
 function ScheduleTable(props) {

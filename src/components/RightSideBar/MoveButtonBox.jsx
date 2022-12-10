@@ -21,7 +21,18 @@ function MoveButtonBox(props) {
 
   const removeList = () => {
     setScheduleList(scheduleList.filter((item) => item.id !== props.id));
-    console.log(scheduleList);
+    let totalTmp = schedule.total;
+    let timeTmp = schedule.time;
+    setSchedule({
+      time: timeTmp - props.time,
+      total: totalTmp - 1,
+    })
+    // setSchedule(tmp);
+    // console.log(tmp);
+    // setSchedule({
+    //   total : total+1,
+    //   time : time,
+    // });
   };
   return (
     <Wrapper>
