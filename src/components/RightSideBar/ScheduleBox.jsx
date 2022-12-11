@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   margin: 9px 20px 0px;
   width: 270px;
 
-  background-color: grey;
+  background-color: white;
 `;
 
 function ScheduleBox(props) {

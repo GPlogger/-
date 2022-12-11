@@ -4,11 +4,7 @@ import { useRecoilState } from "recoil";
 import { BsDot } from "react-icons/bs";
 import { totalTimeListState } from "../recoil/Schedulestate";
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin: 9px 12px 0px;
-`;
+
 
 function EstimatedTime(props) {
 
@@ -19,7 +15,7 @@ function EstimatedTime(props) {
 
 
   return (
-    <Wrapper>
+    <Wrapper time = {props.time}>
       <DotLine></DotLine>
       <TimeBox placeholder={total} />
     </Wrapper>
@@ -34,8 +30,7 @@ const DotLine = styled.div`
     height: 30px;
     width: 34px;
     border: none;
-    border-right: 4px dotted black;
-    border-color: grey;    
+    border-right: 4px dotted grey;
 `
 
 const TimeBox = styled.input`
@@ -47,4 +42,11 @@ const TimeBox = styled.input`
   text-align: center;
   align-items: center;
   justify-content: center;
+`;
+
+const Wrapper = styled.div`
+  display: ${(props) => props.time > 0 ? 'flex' : 'none'};
+  flex-direction: row;
+  margin: 9px 12px 0px;
+  
 `;

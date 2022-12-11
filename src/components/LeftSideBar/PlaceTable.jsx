@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { IoInformationSharp, IoAddOutline } from "react-icons/io5";
 import { useRecoilState } from "recoil";
-import { positionState, levelState, mapState, placePositionState, isScheduleState, distancesState, pathState } from "../recoil/MapStates";
+import { mapState, placePositionState, isScheduleState, distancesState, pathState } from "../recoil/MapStates";
 import { ScheduleListState, ScheduleState } from "../recoil/Schedulestate";
 
+
 function PlaceTable(props) {
+
+
   // 지도 마커 변경
   const [state, setState] = useRecoilState(mapState);
   // 전체 스케줄 시간과 장소 변경
@@ -87,22 +90,24 @@ function PlaceTable(props) {
       lng: props.position.lng,
     });
 
-    console.log(distances);
-
-    console.log(distances.slice(1, distances.length));
+    
     let dis = getDistanceBetweenPlaces(
       placePostion.lat,
       placePostion.lng,
       props.position.lat,
       props.position.lng
-    );
-    setDistance((prev) => [...prev, dis]);
+      );
+      
+      setDistance((prev) => [...prev, dis]);
+      
+      
+    
   };
 
 
 
-
-
+  // 이거 추가하면 오류 씨게남 이유 모르겠슴
+  
   // const scList = distances.map((item) => 
   // (item/600/60) + (item / 600 % 60)
   // )

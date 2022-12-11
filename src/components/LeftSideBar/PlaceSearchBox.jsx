@@ -26,7 +26,6 @@ function PlaceSearchBox() {
   // 엔터 눌렀을 때
   const onEnterPress = (e) => {
     if (e.key === "Enter") {
-      console.log("엔터");
       _setFilterList();
     }
   };

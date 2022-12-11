@@ -3,6 +3,7 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import placeList from "../../placelist.json";
+import { ScheduleListState } from "../recoil/Schedulestate";
 import { FilterList } from "../recoil/Search";
 
 import PlaceSearchBox from "./PlaceSearchBox";
@@ -11,13 +12,43 @@ import PlaceTable from "./PlaceTable.jsx";
 
 function LeftSideBar() {
   const [filterList, setFilterList] = useRecoilState(FilterList);
+  const [scheduleList, setScheduleList] = useRecoilState(ScheduleListState);
+
+  const [tmp, setTmp] = useState(
+    filterList.filter((item) => {
+      if (
+        scheduleList.length > 0 &&
+        !scheduleList.map((i) => i.id).includes(item.id)
+      ) {
+        return item;
+      } else if (scheduleList.length === 0) {
+        return item;
+      }
+    })
+  );
+
+  useEffect(() => {
+    setTmp(
+      filterList.filter((item) => {
+        if (
+          scheduleList.length > 0 &&
+          !scheduleList.map((i) => i.id).includes(item.id)
+        ) {
+          return item;
+        } else if (scheduleList.length === 0) {
+          return item;
+        }
+      })
+    );
+    // setFilterList(tmp);
+  }, [filterList, scheduleList]);
 
   return (
     <Wrapper>
       <PlaceSearchBox />
       <PlaceSelector />
       <Wrapper2>
-        {filterList.map((item) => (
+        {tmp.map((item) => (
           <PlaceTable
             key={item.id}
             id={item.id}

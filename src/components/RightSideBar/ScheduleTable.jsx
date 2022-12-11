@@ -23,7 +23,8 @@ function ScheduleTable(props) {
         time={props.time}
         />
         {/* moveTime 이 NaN 이면 안띄우게 설정해야함 */}
-        <EstimatedTime time = {props.moveTime}/> 
+        
+        <EstimatedTime time = {props.moveTime}/>
     </Wrapper>
   );
 }
