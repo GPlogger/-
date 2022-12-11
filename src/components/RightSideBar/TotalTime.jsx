@@ -9,24 +9,25 @@ import {
 import RightSideBar from "./RightSideBar";
 import { distancesState } from "../recoil/MapStates";
 import { useState } from "react";
+import { useEffect } from "react";
 
 function TotalTime(props) {
   const distances = useRecoilValue(distancesState);
   const schedule = useRecoilValue(ScheduleState);
   const [tmp, setTmp] = useState();
-  distances.map((item) => {
-    setTmp(
-      schedule.time +
-        distances.map((item, idx) => idx >= 1 && Math.floor(item.time / 600))
+  const [scheduleTmp, setScheduleTmp] = useState(tmp + schedule.time);
+  let hour = Math.floor(scheduleTmp / 60);
+  let minute = Number(scheduleTmp) % 60;
+
+  useEffect(() => {
+    distances.map(
+      (item, idx) => idx !== 0 && setTmp(tmp + Math.floor(item / 600))
     );
-  });
-
-  const h = Math.floor(distances[1] / 600 / 60);
-  const m = Math.floor((props.time / 600) % 60);
-  const total = h * 60 + m;
-
-  let hour = Math.floor(schedule.time / 60);
-  let minute = Number(schedule.time) % 60;
+    hour = Math.floor(scheduleTmp / 60);
+    minute = Number(scheduleTmp) % 60;
+    console.log("schedule",schedule.time);
+    console.log("tmp",tmp);
+  }, [schedule, distances]);
 
   return (
     <Wrapper>
