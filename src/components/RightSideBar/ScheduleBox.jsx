@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 function ScheduleBox(props) {
   return (
     <Wrapper>
-      <MoveButtonBox id={props.id} time={props.time}/>
+      <MoveButtonBox id={props.id} time={props.time} idx={props.idx}/>
       <ScheduleInfo title={props.title} time={props.time} />
     </Wrapper>
   );

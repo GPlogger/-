@@ -17,14 +17,9 @@ function ScheduleTable(props) {
   
   return (
     <Wrapper>
-        <ScheduleBox 
-        id = {props.id}
-        title={props.title}
-        time={props.time}
-        />
-        {/* moveTime 이 NaN 이면 안띄우게 설정해야함 */}
-        
-        <EstimatedTime time = {props.moveTime}/>
+      <ScheduleBox id={props.id} title={props.title} time={props.time} idx={props.idx}/>
+
+      <EstimatedTime time={props.moveTime} idx={props.idx}/>
     </Wrapper>
   );
 }

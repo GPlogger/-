@@ -12,16 +12,16 @@ function PlaceTime(props) {
 
   return (
     <Wrapper>
-        <Hour placeholder={hour}/>
+        <Hour>{hour}</Hour>
         <Mark>:</Mark>
-        <Min placeholder={min}/>
+        <Min>{min}</Min>
     </Wrapper>
   );
 }
 
 export default PlaceTime;
 
-const Hour = styled.input`
+const Hour = styled.div`
     width: 40px;
     height: 30px;
     text-align: center;
@@ -32,7 +32,7 @@ const Mark = styled.span`
     
 `
 
-const Min = styled.input`
+const Min = styled.div`
     width: 40px;
     height: 30px;
     text-align: center;

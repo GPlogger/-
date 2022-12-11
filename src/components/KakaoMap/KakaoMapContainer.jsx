@@ -110,14 +110,14 @@ function KakaoMapContainer() {
             </CustomOverlayMap>
           ))}
 
-        <Polyline
+        {/* <Polyline
           path={isSchedule ? [paths[paths.length - 1], placePostion] : []}
           strokeWeight={3} // 선의 두께
           strokeColor={"#f5cd1e"} // 선의 색깔
           strokeOpacity={0.5} // 선의 불투명도
           strokeStyle={"solid"} // 선의 스타일
           // onCreate={setMoveLine}
-        />
+        /> */}
 
         <MapMarker position={state.position}>
           <div

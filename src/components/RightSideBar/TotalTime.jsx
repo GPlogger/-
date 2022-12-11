@@ -2,15 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { RecoilValue, useRecoilState, useRecoilValue } from "recoil";
 import {
-  moveTimeState,
   ScheduleState,
-  TotalCountState,
-  TotalTimeState,
 } from "../recoil/Schedulestate";
-import RightSideBar from "./RightSideBar";
 import { distancesState } from "../recoil/MapStates";
-import { useState } from "react";
-import { useEffect } from "react";
 
 function TotalTime(props) {
   const distances = useRecoilValue(distancesState);
@@ -27,7 +21,6 @@ function TotalTime(props) {
 
   return (
     <Wrapper>
-      {/* <TotalPlace>{test}&nbsp;</TotalPlace> */}
       <TotalPlace schedule={schedule}>{schedule.total}&nbsp;</TotalPlace>
       <h4>
         ({hour}시 {minute}분)

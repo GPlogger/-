@@ -1,7 +1,6 @@
 import { atom } from "recoil";
-import placeList from "../../placelist.json";
 
-export const ScheduleState = atom({
+export const ScheduleState = atom({     // 전체 시간, 장소
     key: "ScheduleState",
     default: {
         time: 0,
@@ -9,7 +8,7 @@ export const ScheduleState = atom({
     },
 });
 
-export const ScheduleListState = atom({
+export const ScheduleListState = atom({     // 일정 추가 리스트
     key: "ScheduleListState",
     default: [
         // {
@@ -17,27 +16,10 @@ export const ScheduleListState = atom({
         //     title : "여행지",
         //     time : 320,
         // },
-        // {},
     ]
 });
 
-// 목적지까지 도착 리스트 (첫 번째 값은 쓰레기값)
-export const totalTimeListState = atom({
-    key: "totalTimeListState",
+export const moveTimeListState = atom({
+    key: "moveTimeListState",
     default: ([]),
-})
-
-export const TotalTimeState = atom({
-    key: "TotalTimeState",
-    default: 0,
-})
-
-export const moveTimeState = atom({
-    key: "moveTimeState",
-    default: 0,
-})
-
-export const TotalCountState = atom({
-    key: "TotalCountState",
-    default: 0,
 })

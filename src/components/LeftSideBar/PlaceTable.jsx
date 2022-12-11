@@ -24,18 +24,23 @@ function PlaceTable(props) {
   // 지도에 표시할 선의 경로
   const [paths, setPaths] = useRecoilState(pathState);
 
-  // 스케줄에 표시할 도착예상시간 리스트
+
 
 
 
 /** 첫 장소의 좌표와 다음 좌표의 거리를 반환*/
   function getDistanceBetweenPlaces(lat1, lng1, lat2, lng2) {
-    let theta = lng1 - lng2;
-    let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
+    if(lat1 === null || lng1 === null || lat2 === null || lng2 === null){
+
+    }else{
+
+      let theta = lng1 - lng2;
+      let distance = 60 * 1.1515 * (180/Math.PI) * Math.acos(
         Math.sin(lat1 * (Math.PI/180)) * Math.sin(lat2 * (Math.PI/180)) + 
         Math.cos(lat1 * (Math.PI/180)) * Math.cos(lat2 * (Math.PI/180)) * Math.cos(theta * (Math.PI/180))
-    );
-    return Math.round(distance * 1609.344, 2);
+        );
+        return Math.round(distance * 1609.344, 2);
+      }
   };
 
 
@@ -99,7 +104,6 @@ function PlaceTable(props) {
       
       setDistance((prev) => [...prev, dis]);
       
-      console.log(distances);
     
   };
 

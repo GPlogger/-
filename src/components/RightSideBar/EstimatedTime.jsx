@@ -1,23 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { moveTimeState, ScheduleState } from "../recoil/Schedulestate";
 import { useEffect } from "react";
 import { distancesState } from "../recoil/MapStates";
 
 function EstimatedTime(props) {
-  const distances = useRecoilValue(distancesState);
-  const [schedule, setschedule] = useRecoilState(ScheduleState);
-  const [moveTime, setMoveTime] = useRecoilState(moveTimeState);
 
   const hour = Math.floor(props.time / 600 / 60);
   const min = Math.floor((props.time / 600) % 60);
   const total = hour * 60 + min;
 
+
+
   return (
     <Wrapper time={props.time}>
       <DotLine></DotLine>
-      <TimeBox placeholder={total} />
+      <TimeBox>{total}분</TimeBox>
     </Wrapper>
   );
 }
@@ -33,7 +31,7 @@ const DotLine = styled.div`
   border-right: 4px dotted grey;
 `;
 
-const TimeBox = styled.input`
+const TimeBox = styled.div`
   display: flex;
   background-color: white;
   height: 30px;

@@ -2,13 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import ScheduleTable from "./ScheduleTable";
 import TotalTime from "./TotalTime";
-import { useRecoilValue } from "recoil";
-import { ScheduleListState } from "../recoil/Schedulestate";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { moveTimeListState, ScheduleListState } from "../recoil/Schedulestate";
 import { distancesState } from "../recoil/MapStates";
+import { useEffect } from "react";
 
 function RightSideBar(props) {
   const scheduleList = useRecoilValue(ScheduleListState);
   const distance = useRecoilValue(distancesState);
+  // 스케줄에 표시되는 도착예상시각 리스트
+  const [moveTimeList, setMoveTimeList] = useRecoilState(moveTimeListState);
+  // useEffect(()=>{},[distance])
+
   return (
     <Wrapper>
       <TotalTime />
@@ -20,6 +25,7 @@ function RightSideBar(props) {
             title={item.title}
             time={item.time}
             moveTime={distance[idx + 1]}
+            idx={idx}
           />
         ))}
       </ScheduleScroll>
