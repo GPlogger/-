@@ -6,23 +6,20 @@ import { useRecoilValue } from "recoil";
 import { ScheduleListState } from "../recoil/Schedulestate";
 import { distancesState } from "../recoil/MapStates";
 
-
 function RightSideBar(props) {
-
   const scheduleList = useRecoilValue(ScheduleListState);
   const distance = useRecoilValue(distancesState);
-  let cnt = 1;
   return (
     <Wrapper>
       <TotalTime />
       <ScheduleScroll>
-        {scheduleList.map((item) => (
+        {scheduleList.map((item, idx) => (
           <ScheduleTable
             key={item.id}
             id={item.id}
             title={item.title}
             time={item.time}
-            moveTime={distance[cnt++]}
+            moveTime={distance[idx + 1]}
           />
         ))}
       </ScheduleScroll>
@@ -48,7 +45,7 @@ const ScheduleScroll = styled.div`
   ::-webkit-scrollbar-track {
     background: rgba(247, 247, 247, 0.1); /*스크롤바 뒷 배경 색상*/
   }
-`
+`;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -56,5 +53,4 @@ const Wrapper = styled.div`
   width: 300px;
   height: 100%;
   background-color: #fff;
-
 `;

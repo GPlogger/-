@@ -16,7 +16,6 @@ export const ScheduleListState = atom({
         //     id : 0,
         //     title : "여행지",
         //     time : 320,
-        //     moveTime: 30,
         // },
         // {},
     ]
@@ -33,6 +32,10 @@ export const TotalTimeState = atom({
     default: 0,
 })
 
+export const moveTimeState = atom({
+    key: "moveTimeState",
+    default: 0,
+})
 
 export const TotalCountState = atom({
     key: "TotalCountState",

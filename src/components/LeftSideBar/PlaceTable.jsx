@@ -59,7 +59,6 @@ function PlaceTable(props) {
         id: props.id,
         title: props.name,
         time: props.time,
-        moveTime: 0, // 이동 시간
       })
     );
 

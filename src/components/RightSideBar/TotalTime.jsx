@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { RecoilValue, useRecoilValue } from "recoil";
+import { RecoilValue, useRecoilState, useRecoilValue } from "recoil";
 import {
+  moveTimeState,
   ScheduleState,
   TotalCountState,
   TotalTimeState,
@@ -14,20 +15,15 @@ import { useEffect } from "react";
 function TotalTime(props) {
   const distances = useRecoilValue(distancesState);
   const schedule = useRecoilValue(ScheduleState);
-  const [tmp, setTmp] = useState();
-  const [scheduleTmp, setScheduleTmp] = useState(tmp + schedule.time);
-  let hour = Math.floor(scheduleTmp / 60);
-  let minute = Number(scheduleTmp) % 60;
-
-  useEffect(() => {
-    distances.map(
-      (item, idx) => idx !== 0 && setTmp(tmp + Math.floor(item / 600))
-    );
-    hour = Math.floor(scheduleTmp / 60);
-    minute = Number(scheduleTmp) % 60;
-    console.log("schedule",schedule.time);
-    console.log("tmp",tmp);
-  }, [schedule, distances]);
+  let tmp = 0;
+  distances.map((item, idx) => {
+    if (idx !== 0) {
+      tmp = tmp + Math.floor(item / 600);
+    }
+  });
+  tmp = tmp + schedule.time;
+  let hour = Math.floor(tmp / 60);
+  let minute = Number(tmp) % 60;
 
   return (
     <Wrapper>

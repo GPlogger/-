@@ -1,25 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import { useRecoilState } from "recoil";
-import { ScheduleState } from "../recoil/Schedulestate";
-
-
+import { useRecoilState, useRecoilValue } from "recoil";
+import { moveTimeState, ScheduleState } from "../recoil/Schedulestate";
+import { useEffect } from "react";
+import { distancesState } from "../recoil/MapStates";
 
 function EstimatedTime(props) {
-
+  const distances = useRecoilValue(distancesState);
   const [schedule, setschedule] = useRecoilState(ScheduleState);
-  
+  const [moveTime, setMoveTime] = useRecoilState(moveTimeState);
+
   const hour = Math.floor(props.time / 600 / 60);
-  const min = Math.floor(props.time / 600 % 60);
-  const total = hour*60 + min;
-
-
-  // setTotalTime((prev) => (prev + total));
-
-
+  const min = Math.floor((props.time / 600) % 60);
+  const total = hour * 60 + min;
 
   return (
-    <Wrapper time = {props.time}>
+    <Wrapper time={props.time}>
       <DotLine></DotLine>
       <TimeBox placeholder={total} />
     </Wrapper>
@@ -29,13 +25,13 @@ function EstimatedTime(props) {
 export default EstimatedTime;
 
 const DotLine = styled.div`
-    display: flex;
-    flex-direction: column;
-    height: 30px;
-    width: 34px;
-    border: none;
-    border-right: 4px dotted grey;
-`
+  display: flex;
+  flex-direction: column;
+  height: 30px;
+  width: 34px;
+  border: none;
+  border-right: 4px dotted grey;
+`;
 
 const TimeBox = styled.input`
   display: flex;
@@ -49,8 +45,7 @@ const TimeBox = styled.input`
 `;
 
 const Wrapper = styled.div`
-  display: ${(props) => props.time > 0 ? 'flex' : 'none'};
+  display: ${(props) => (props.time > 0 ? "flex" : "none")};
   flex-direction: row;
   margin: 9px 12px 0px;
-  
 `;
