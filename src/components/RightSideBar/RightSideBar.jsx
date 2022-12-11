@@ -4,12 +4,14 @@ import ScheduleTable from "./ScheduleTable";
 import TotalTime from "./TotalTime";
 import { useRecoilValue } from "recoil";
 import { ScheduleListState } from "../recoil/Schedulestate";
+import { distancesState } from "../recoil/MapStates";
 
 
 function RightSideBar(props) {
 
   const scheduleList = useRecoilValue(ScheduleListState);
-
+  const distance = useRecoilValue(distancesState);
+  let cnt = 1;
   return (
     <Wrapper>
       <TotalTime />
@@ -20,7 +22,7 @@ function RightSideBar(props) {
             id={item.id}
             title={item.title}
             time={item.time}
-            moveTime={item.moveTime}
+            moveTime={distance[cnt++]}
           />
         ))}
       </ScheduleScroll>

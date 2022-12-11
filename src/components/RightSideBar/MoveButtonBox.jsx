@@ -27,12 +27,7 @@ function MoveButtonBox(props) {
       time: timeTmp - props.time,
       total: totalTmp - 1,
     })
-    // setSchedule(tmp);
-    // console.log(tmp);
-    // setSchedule({
-    //   total : total+1,
-    //   time : time,
-    // });
+
   };
   return (
     <Wrapper>

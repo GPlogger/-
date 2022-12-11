@@ -21,6 +21,8 @@ function PlaceTable(props) {
   // 지도에 표시할 선의 경로
   const [paths, setPaths] = useRecoilState(pathState);
 
+  // 스케줄에 표시할 도착예상시간 리스트
+
 
 
 /** 첫 장소의 좌표와 다음 좌표의 거리를 반환*/
@@ -96,6 +98,16 @@ function PlaceTable(props) {
     );
     setDistance((prev) => [...prev, dis]);
   };
+
+
+
+
+
+  // const scList = distances.map((item) => 
+  // (item/600/60) + (item / 600 % 60)
+  // )
+
+  // setScheduleList(scList);
 
   return (
     <Wrapper>

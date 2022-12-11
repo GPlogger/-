@@ -22,6 +22,12 @@ export const ScheduleListState = atom({
     ]
 });
 
+// 목적지까지 도착 리스트 (첫 번째 값은 쓰레기값)
+export const totalTimeListState = atom({
+    key: "totalTimeListState",
+    default: ([]),
+})
+
 export const TotalTimeState = atom({
     key: "TotalTimeState",
     default: 0,
