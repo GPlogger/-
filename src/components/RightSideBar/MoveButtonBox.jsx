@@ -23,6 +23,8 @@ function MoveButtonBox(props) {
   const [distances, setDistances] = useRecoilState(distancesState);
 
   const removeList = () => {
+    console.log(scheduleList);
+    console.log(distances);
     setScheduleList(scheduleList.filter((item) => item.id !== props.id));
     let totalTmp = schedule.total;
     let timeTmp = schedule.time;
@@ -30,21 +32,12 @@ function MoveButtonBox(props) {
       time: timeTmp - props.time,
       total: totalTmp - 1,
     });
-    if (setScheduleList.length === 1){
+    if (scheduleList.length === 1){
       setPaths([]);
       setDistances([]);
     } else {
 
       setPaths(paths.filter((item, idx) => props.idx !== idx));
-      // if (distances.length !== 1 && distances.length === props.idx + 1) {
-        //   console.log(distances);
-        //   setDistances(distances.filter((item, idx) => props.idx !== idx));
-        // } else {
-          //   setDistances(distances.filter((item, idx) => props.idx + 1 !== idx));
-          
-          
-          
-          
           
           if (distances.length <= 1) {
           } else if (distances.length === props.idx + 1) {
@@ -55,29 +48,11 @@ function MoveButtonBox(props) {
             setDistances(distances.filter((item, idx) => props.idx + 1 !== idx));
           }
         }
-          
-    // if (scheduleList.length === 0) {
-    // }
-    // console.log(distances);
   };
-
-  const moveUp = () => {
-    console.log(distances);
-    console.log(scheduleList);
-
-    // console.log(scheduleList);
-    // if (Number(props.idx) !== 0) {
-    //   let temp = scheduleList.splice(Number(props.idx), 1);
-    //   setScheduleList(scheduleList.splice(Number(props.idx) - 1, 0, temp));
-    // }
-  };
-  const moveDown = () => {};
 
   return (
     <Wrapper>
-      <VscChevronUp onClick={moveUp} />
       <VscChromeClose onClick={removeList} />
-      <VscChevronDown onClick={moveDown} />
     </Wrapper>
   );
 }

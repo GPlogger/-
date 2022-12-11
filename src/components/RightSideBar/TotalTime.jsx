@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import { RecoilValue, useRecoilState, useRecoilValue } from "recoil";
-import {
-  ScheduleState,
-} from "../recoil/Schedulestate";
-import { distancesState } from "../recoil/MapStates";
+import { ScheduleState, ScheduleListState } from "../recoil/Schedulestate";
+import { distancesState, pathState } from "../recoil/MapStates";
 
 function TotalTime(props) {
-  const distances = useRecoilValue(distancesState);
-  const schedule = useRecoilValue(ScheduleState);
+  const [scheduleList, setScheduleList] = useRecoilState(ScheduleListState);
+  const [schedule, setSchedule] = useRecoilState(ScheduleState);
+  const [paths, setPaths] = useRecoilState(pathState);
+  const [distances, setDistances] = useRecoilState(distancesState);
+
+
+
   let tmp = 0;
   distances.map((item, idx) => {
     if (idx !== 0) {
@@ -25,6 +28,7 @@ function TotalTime(props) {
       <h4>
         ({hour}시 {minute}분)
       </h4>
+      <button onClick={() => {setDistances([]); setPaths([]); setSchedule({time:0,total:0});setScheduleList([])}}>초기화</button>
     </Wrapper>
   );
 }
