@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   flex-direction: row; // row : 가로   컬럼 : 세로
   width: 100%;
   height: 66px; // 66px
-  background-color: rgb(255, 250, 240);
+  background-color: rgb(251 255 248);
   justify-content: center;
   align-items: center;
   font-family: "Jejuhanla";

@@ -4,17 +4,15 @@
   box-sizing: border-box;
 }
 
-body{
-  font-family:
-   'Nanum';
-   box-sizing: border-box;
+body {
+  font-family: "Nanum";
+  box-sizing: border-box;
 }
 
 @font-face {
   font-family: "Jejudoldam";
   src: url("./fonts/Jejudoldam.ttf");
 }
-  
 
 @font-face {
   font-family: "Nanum";
@@ -27,8 +25,14 @@ body{
 }
 
 @font-face {
-  font-family: 'GmarketSans';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-family: "Clock";
+  src: url("./fonts/digital.ttf");
+}
+
+@font-face {
+  font-family: "GmarketSans";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }

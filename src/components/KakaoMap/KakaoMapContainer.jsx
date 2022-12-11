@@ -39,13 +39,13 @@ function KakaoMapContainer() {
     const carkTime = (sum / 600) | 0;
 
     return (
-      <ul className="dotOverlay distanceInfo">
+      <Ul className="dotOverlay distanceInfo" style={{ listStyle: "none" }}>
         {/* <ul className="dotOverlay distanceInfo" style={{"list-style":"none", "textAlign":"center"}}> */}
-        <li>
+        <Li>
           <span className="label">총거리</span>{" "}
           <span className="number">{sum}</span>m
-        </li>
-        <li>
+        </Li>
+        <Li>
           <span className="label">예상도착시간</span>{" "}
           {carkTime > 60 && (
             <>
@@ -53,8 +53,8 @@ function KakaoMapContainer() {
             </>
           )}
           <span className="number">{carkTime % 60}</span> 분
-        </li>
-      </ul>
+        </Li>
+      </Ul>
     );
   };
 
@@ -68,8 +68,8 @@ function KakaoMapContainer() {
       >
         <Polyline
           path={paths}
-          strokeWeight={3} // 선의 두께
-          strokeColor={"#cf1e1e"} // 선의 색깔
+          strokeWeight={2} // 선의 두께
+          strokeColor={`#ff4848e6`} // 선의 색깔
           strokeOpacity={1} // 선의 불투명도
           strokeStyle={"solid"} // 선의 스타일
         />
@@ -110,15 +110,6 @@ function KakaoMapContainer() {
             </CustomOverlayMap>
           ))}
 
-        {/* <Polyline
-          path={isSchedule ? [paths[paths.length - 1], placePostion] : []}
-          strokeWeight={3} // 선의 두께
-          strokeColor={"#f5cd1e"} // 선의 색깔
-          strokeOpacity={0.5} // 선의 불투명도
-          strokeStyle={"solid"} // 선의 스타일
-          // onCreate={setMoveLine}
-        /> */}
-
         <MapMarker position={state.position}>
           <div
             style={{
@@ -131,23 +122,6 @@ function KakaoMapContainer() {
             {state.name} <br />
           </div>
         </MapMarker>
-
-      {/* {paths.map((path, idx)=> {
-
-        <MapMarker
-          key={`${path.title}-${position.latlng}`}
-          position={position.latlng} // 마커를 표시할 위치
-          image={{
-            src: "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png", // 마커이미지의 주소입니다
-            size: {
-              width: 24,
-              height: 35,
-            }, // 마커이미지의 크기입니다
-          }}
-          title={position.title} // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-        />;
-      })} */}
-
       </Map>
     </Wrapper>
   );
@@ -173,4 +147,14 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   font-family: "GmarketSans";
+`;
+const Ul = styled.ul`
+  list-style: none;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px -3px grey;
+`;
+const Li = styled.li`
+  font-size: 13px;
 `;

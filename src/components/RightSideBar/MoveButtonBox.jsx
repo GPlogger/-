@@ -8,10 +8,11 @@ import { distancesState, pathState } from "../recoil/MapStates";
 
 const Wrapper = styled.div`
   display: flex;
+  position: absolute;
   flex-direction: column;
-  height: 70px;
-  width: 10%;
-  background-color: yellow;
+  top: 50px;
+  right: 7px;
+  background-color: white;
   justify-content: center;
   align-items: center;
 `;
@@ -32,22 +33,21 @@ function MoveButtonBox(props) {
       time: timeTmp - props.time,
       total: totalTmp - 1,
     });
-    if (scheduleList.length === 1){
+    if (scheduleList.length === 1) {
       setPaths([]);
       setDistances([]);
     } else {
-
       setPaths(paths.filter((item, idx) => props.idx !== idx));
-          
-          if (distances.length <= 1) {
-          } else if (distances.length === props.idx + 1) {
-            setDistances(distances.filter((item, idx) => props.idx !== idx));
-            console.log(distances);
-            console.log(props.idx);
-          } else {
-            setDistances(distances.filter((item, idx) => props.idx + 1 !== idx));
-          }
-        }
+
+      if (distances.length <= 1) {
+      } else if (distances.length === props.idx + 1) {
+        setDistances(distances.filter((item, idx) => props.idx !== idx));
+        console.log(distances);
+        console.log(props.idx);
+      } else {
+        setDistances(distances.filter((item, idx) => props.idx + 1 !== idx));
+      }
+    }
   };
 
   return (

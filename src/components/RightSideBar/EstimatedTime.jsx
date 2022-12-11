@@ -5,12 +5,9 @@ import { useEffect } from "react";
 import { distancesState } from "../recoil/MapStates";
 
 function EstimatedTime(props) {
-
   const hour = Math.floor(props.time / 600 / 60);
   const min = Math.floor((props.time / 600) % 60);
   const total = hour * 60 + min;
-
-
 
   return (
     <Wrapper time={props.time}>
@@ -40,6 +37,9 @@ const TimeBox = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
+  font-size: 15px;
+  font-weight: bold;
+  color: #555;
 `;
 
 const Wrapper = styled.div`

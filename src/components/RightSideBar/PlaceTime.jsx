@@ -12,9 +12,9 @@ function PlaceTime(props) {
 
   return (
     <Wrapper>
-        <Hour>{hour}</Hour>
-        <Mark>:</Mark>
-        <Min>{min}</Min>
+      <Hour>{("00" + hour).slice(-2)}</Hour>
+      <Mark>:</Mark>
+      <Min>{("00" + min).slice(-2)}</Min>
     </Wrapper>
   );
 }
@@ -22,19 +22,20 @@ function PlaceTime(props) {
 export default PlaceTime;
 
 const Hour = styled.div`
-    width: 40px;
-    height: 30px;
-    text-align: center;
-    font-size: 14pt;
-`
+  text-align: center;
+  font-size: 17px;
+  font-family: "Clock";
+`;
 
 const Mark = styled.span`
-    
-`
+  font-family: "Clock";
+  font-size: 17px;
+  margin: 0 10px;
+`;
 
 const Min = styled.div`
-    width: 40px;
-    height: 30px;
-    text-align: center;
-    font-size: 14pt;
-`
+  text-align: center;
+  font-size: 17px;
+  font-family: "Clock";
+  margin-right: 8px;
+`;

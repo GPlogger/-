@@ -148,6 +148,6 @@ const ImageBox = styled.div`
   padding: 1px;
   cursor: pointer;
   :hover {
-    border: rgb(42, 134, 129) 2px solid;
+    border: rgb(56, 56, 56) 2px solid;
   }
 `;

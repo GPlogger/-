@@ -36,8 +36,15 @@ function RightSideBar(props) {
 export default RightSideBar;
 
 const ScheduleScroll = styled.div`
+  display: flex;
+  flex-direction: column;
   overflow: scroll;
   overflow-x: hidden;
+  width: 100%;
+  height: calc(100% - 70px);
+  margin-top: 10px;
+  padding-left: 20px;
+  align-items: center;
   ::-webkit-scrollbar {
     width: 8px;
   }
@@ -56,7 +63,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-content: center;
-  width: 300px;
+  width: 320px;
   height: 100%;
+  /* height: 100%; */
   background-color: #fff;
 `;
