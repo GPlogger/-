@@ -100,7 +100,7 @@ function PlaceTable(props) {
       
       setDistance((prev) => [...prev, dis]);
       
-      
+      console.log(distances);
     
   };
 

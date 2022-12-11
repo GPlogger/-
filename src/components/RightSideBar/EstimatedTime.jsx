@@ -1,16 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { useRecoilState } from "recoil";
-import { BsDot } from "react-icons/bs";
-import { totalTimeListState } from "../recoil/Schedulestate";
+import { ScheduleState } from "../recoil/Schedulestate";
 
 
 
 function EstimatedTime(props) {
 
+  const [schedule, setschedule] = useRecoilState(ScheduleState);
+  
   const hour = Math.floor(props.time / 600 / 60);
   const min = Math.floor(props.time / 600 % 60);
   const total = hour*60 + min;
+
+
+  // setTotalTime((prev) => (prev + total));
 
 
 
