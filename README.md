@@ -23,3 +23,7 @@
     - react-kakao-maps-sdk
     - recoil
     - smooth-scrollbar
+
+## 실행 방법
+1. 해당 디렉토리에서 npm install로 설치
+2. npm run을 통해 리액트 실행
